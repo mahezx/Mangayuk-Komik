@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mangakuy_layout/screens/home_screen.dart';
 
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -28,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                       image: const DecorationImage(
-                        image: AssetImage('img/logo-app.png'),
+                        image: AssetImage('img/logoapp.png'),
                         fit: BoxFit.cover,
                       ),
                       border: Border.all(color: Colors.white, width: 1),

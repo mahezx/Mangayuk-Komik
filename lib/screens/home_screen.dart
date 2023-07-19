@@ -3,18 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'detail_screen.dart';
+import 'package:mangakuy_layout/data.dart';
 
-class CardItem {
-  final String imageCard;
-  final String title;
-  final String subtitle;
 
-  const CardItem({
-    required this.imageCard,
-    required this.title,
-    required this.subtitle,
-  });
-}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,38 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {'id': 3, "image_path": 'img/dednot.jpg'},
   ];
 
-  List<CardItem> items = [
-    CardItem(
-      imageCard: '/img/mythicitem.jpeg',
-      title: 'I Obtain Mythic..',
-      subtitle: 'Chapter 49',
-    ),
-    CardItem(
-      imageCard: '/img/aw.jpg',
-      title: 'Novel Extra..',
-      subtitle: 'Chapter 50',
-    ),
-    CardItem(
-      imageCard: '/img/sung.jpg',
-      title: 'Solo Max Lev..',
-      subtitle: 'Chapter 94',
-    ),
-    CardItem(
-      imageCard: '/img/rokhan.jpg',
-      title: 'Return of the..',
-      subtitle: 'Chapter 54',
-    ),
-    CardItem(
-      imageCard: '/img/broken-ring.jpg',
-      title: 'The Broken..',
-      subtitle: 'Chapter 42',
-    ),
-    CardItem(
-      imageCard: '/img/marriage-bisnis.jpg',
-      title: 'Marriage Conv..',
-      subtitle: 'Chapter 81',
-    ),
-  ];
+  
 
   final CarouselController carouselController = CarouselController();
   int currentIndex = 0;
@@ -92,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        'Mangakuy',
+                        'Mangayuk',
                         style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -220,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 separatorBuilder: (context, _) => const SizedBox(
                   width: 12,
                 ),
-                itemBuilder: (context, index) => buildCard(item: items[index]),
+                itemBuilder: (context, index) => buildCard(item: cardItems[index], index: index),
               ),
             ),
             Container(
@@ -318,6 +279,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
               ]),
             ),
+
+            const SizedBox(height: 25,),
+            
             Container(
               height: 474,
               child: ListView(
@@ -717,7 +681,8 @@ class _HomeScreenState extends State<HomeScreen> {
   // WIDGET CARD KOMIKNYA
 
   Widget buildCard({
-    required CardItem item,
+      required CardItem item,
+    required int index,
   }) =>
       Container(
           width: 100,
@@ -733,7 +698,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         image: AssetImage(item.imageCard),
                         fit: BoxFit.cover,
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            // Navigasi ke halaman detail dengan indeks dan daftar item sebagai parameter
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailPage(index: index, items: cardItems),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -748,7 +721,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       Text(
-                        item.title,
+                        truncateText(item.title, 12),
+                    
                         style: GoogleFonts.poppins(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       )
@@ -756,7 +730,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text(
-                      item.subtitle,
+                      item.chapter,
                       style: GoogleFonts.poppins(
                         fontSize: 9,
                       ),
@@ -766,4 +740,12 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ));
+}
+
+String truncateText(String text, int maxChars) {
+  if (text.length <= maxChars) {
+    return text;
+  } else {
+    return text.substring(0, maxChars) + '...';
+  }
 }
