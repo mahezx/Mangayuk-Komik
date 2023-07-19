@@ -1,3 +1,3 @@
-# mangakuy_layout
+Mangayuk
 
-A new Flutter project.
+Sebuah aplikasi yang berisi komik
