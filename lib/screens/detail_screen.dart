@@ -20,8 +20,10 @@ class _DetailPageState extends State<DetailPage> {
 
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: Stack(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+      body: SafeArea(child: Stack(
         children: [
           Container(
             child: Hero(
@@ -294,6 +296,8 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ],
       ),
+      ),
+    ),
     );
   }
 }

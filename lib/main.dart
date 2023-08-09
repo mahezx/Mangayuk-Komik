@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:mangakuy_layout/firebase_options.dart';
+import 'package:mangakuy_layout/screens/register_screen.dart';
 
 import 'screens/login_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/detail_screen.dart';
 import 'screens/home_screen.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -24,11 +35,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // primarySwatch: ,
-      ),
+          // primarySwatch: ,
+          ),
       home: LoginScreen(),
-      
-      // 
+
+      //
       // Scaffold(
       //   body: HomeScreen(),
       //   floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -49,13 +60,13 @@ class _MyAppState extends State<MyApp> {
       //         CustomNavigationBarItem(icon: _currentIndex == 1 ? Icon(Icons.bookmark) : Icon(Icons.bookmark_border_outlined)),
       //         CustomNavigationBarItem(icon: _currentIndex == 2 ? Icon(Icons.explore) : Icon(Icons.explore_outlined)),
       //         CustomNavigationBarItem(icon: _currentIndex == 3 ? Icon(Icons.account_circle) : Icon(Icons.account_circle_outlined)),
-      //       ],      
+      //       ],
       //       onTap:(index){
       //         setState(() {
       //           _currentIndex = index;
       //         });
       //       },
-            
+
       //     )
       //   )
       // ),

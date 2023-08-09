@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "759083643689",
+    "project_id": "login-regismgyk",
+    "storage_bucket": "login-regismgyk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759083643689:android:5b2efdac96d34819d77d38",
+        "android_client_info": {
+          "package_name": "com.example.mangakuy_layout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759083643689-htp01ldbqsus57qs7s7gspjo99neg117.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqguuKQ7WE9oE85hDY8S38vdnd4GfnnjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759083643689-htp01ldbqsus57qs7s7gspjo99neg117.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

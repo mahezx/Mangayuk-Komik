@@ -9,11 +9,15 @@ environment:
 dependencies: 
   animated_text_kit: ^4.2.2
   carousel_slider: ^4.2.1
+  cloud_firestore: ^4.8.3
   custom_navigation_bar: ^0.8.2
+  firebase_auth: ^4.7.1
+  firebase_core: ^2.15.0
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
   google_fonts: ^4.0.3
+  google_sign_in: ^6.1.4
   lottie: ^2.3.2
   svg_icon: ^0.0.1
 
